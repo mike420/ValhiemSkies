@@ -27,7 +27,7 @@ Thank you for your support, and happy gaming! ⚔️  ...... (A Paypal account i
 
 ## ✅ Features:
 
-  * **16 HD skies**, each a full 6-face cubemap.
+  * **13 HD skies**, each a full 6-face cubemap.
   * Change the sky **while playing**, from the in-game settings panel (F7). No restart needed.
   * **Random Sky**: a different sky each time you enter a world.
   * **Vanilla** option to go back to the game's own sky.
@@ -41,21 +41,18 @@ Thank you for your support, and happy gaming! ⚔️  ...... (A Paypal account i
 ## 🌠 The Skies:
 
   * Edge-On Galaxy
-  * Spiral Galaxy
   * Blue Horizon
-  * Galaxy Field
-  * Deep Field
-  * Nebula Sunrise
   * Spiral Void
   * Milky Way Rift
-  * Ember Nebula
   * Dust Lane
   * Cosmic Clouds
-  * Cosmos 1
-  * Cosmos 4
-  * Nebula 30
-  * Nebula 39
-  * Nebula 64
+  * Ember Nebula
+  * Nebula Sunrise
+  * Deep Space 1
+  * Deep Space 2
+  * Deep Space 3
+  * Deep Space 4
+  * Deep Space 5
 
 The skies replace the star field of the game's sky, so they show best at night, when the stars come out.
 

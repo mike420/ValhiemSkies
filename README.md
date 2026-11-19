@@ -6,11 +6,11 @@ Hide Yggdrasil (the big tree in the sky). Client side only.
 
 ## Building
 
-The sky images live in the `valheim_skies` asset bundle, which is **not in git** (it is about 300 MB). Build it first:
+The sky images live in the `valheim_skies` asset bundle, which is **not in git** (it is about 270 MB). Build it first:
 
 1. Open the Unity project at `E:\Unity_Projects\ValhiemSkies` (Unity 6000.0.76f1).
 2. Run **Valheim Skies > Build Skies Bundle**. The Console should show an "all cube edges join up" line for each of
-   the 16 skies. The bundle is copied into `ValheimSkies/Resources/`.
+   the 13 skies. The bundle is copied into `ValheimSkies/Resources/`.
 3. Build the mod: VS MSBuild `ValheimSkies.sln -restore -p:Configuration=Release`. The build stops with an error if
    `Resources/valheim_skies` is missing, and copies the bundle next to the DLL in the game's `BepInEx/plugins`.
 

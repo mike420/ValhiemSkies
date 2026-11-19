@@ -27,21 +27,18 @@ internal static class SkyCatalog
     public static readonly SkyInfo[] Skies =
     {
         new SkyInfo("Edge-On Galaxy", "sky_edge_on_galaxy"),
-        new SkyInfo("Spiral Galaxy", "sky_spiral_galaxy"),
         new SkyInfo("Blue Horizon", "sky_blue_horizon"),
-        new SkyInfo("Galaxy Field", "sky_galaxy_field"),
-        new SkyInfo("Deep Field", "sky_deep_field"),
-        new SkyInfo("Nebula Sunrise", "sky_nebula_sunrise"),
         new SkyInfo("Spiral Void", "sky_spiral_void"),
         new SkyInfo("Milky Way Rift", "sky_milky_way_rift"),
-        new SkyInfo("Ember Nebula", "sky_ember_nebula"),
         new SkyInfo("Dust Lane", "sky_dust_lane"),
         new SkyInfo("Cosmic Clouds", "sky_cosmic_clouds"),
-        new SkyInfo("Cosmos 1", "sky_cosmos_1"),
-        new SkyInfo("Cosmos 4", "sky_cosmos_4"),
-        new SkyInfo("Nebula 30", "sky_nebula_30"),
-        new SkyInfo("Nebula 39", "sky_nebula_39"),
-        new SkyInfo("Nebula 64", "sky_nebula_64"),
+        new SkyInfo("Ember Nebula", "sky_ember_nebula"),
+        new SkyInfo("Nebula Sunrise", "sky_nebula_sunrise"),
+        new SkyInfo("Deep Space 1", "sky_cosmos_1"),
+        new SkyInfo("Deep Space 2", "sky_cosmos_4"),
+        new SkyInfo("Deep Space 3", "sky_nebula_30"),
+        new SkyInfo("Deep Space 4", "sky_nebula_39"),
+        new SkyInfo("Deep Space 5", "sky_nebula_64"),
     };
 
     // What the Sky setting can be: the game's own sky first, then every sky from the bundle

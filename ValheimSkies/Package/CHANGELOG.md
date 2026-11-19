@@ -10,7 +10,7 @@
     <td>1.0.0</td>
     <td>
         <ul>
-            <li>First release: 16 HD skies, Random Sky, and a Sky setting that changes the sky while playing.</li>
+            <li>First release: 13 HD skies, Random Sky, and a Sky setting that changes the sky while playing.</li>
         </ul>
     </td>
   </tr>
