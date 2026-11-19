@@ -12,3 +12,6 @@ Environment.props
 ValheimSkies/ThunderStore/
 *.zip
 *.log
+
+# Built in the Unity project, too large for git
+ValheimSkies/Resources/valheim_skies
