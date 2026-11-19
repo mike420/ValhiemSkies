@@ -36,6 +36,10 @@ internal static class SkyChanger
     // The sky picked by Random Sky, kept until the next world is entered
     private static SkyInfo randomPick;
 
+    // The tree in the sky, found by name (a hidden object cannot be found again, so it is kept)
+    private const string YggdrasilName = "YggdrasilBranch";
+    private static GameObject yggdrasil;
+
     private static float nextCheck;
     private static bool warnedMissingProperty;
 
@@ -48,6 +52,25 @@ internal static class SkyChanger
     public static void OnWorldLoaded()
     {
         Apply(newPick: true, announce: false);
+    }
+
+    public static void OnPlayerSpawned()
+    {
+        yggdrasil = GameObject.Find(YggdrasilName);
+        if (yggdrasil == null)
+        {
+            Jotunn.Logger.LogDebug($"[{ValheimSkiesMod.PluginName}] The tree in the sky ('{YggdrasilName}') was not found.");
+        }
+        ApplyYggdrasil();
+    }
+
+    // Hides or shows the tree in the sky as the setting says
+    public static void ApplyYggdrasil()
+    {
+        if (yggdrasil != null)
+        {
+            yggdrasil.SetActive(!MainConfig.hideYggdrasil.Value);
+        }
     }
 
     public static void OnSettingChanged(bool newPick)
@@ -85,6 +108,10 @@ internal static class SkyChanger
     public static void Shutdown()
     {
         request++;
+        if (yggdrasil != null)
+        {
+            yggdrasil.SetActive(true);
+        }
         if (material != null && vanillaTexture != null)
         {
             material.SetTexture(TextureProperty, vanillaTexture);

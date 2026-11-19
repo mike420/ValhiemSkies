@@ -11,3 +11,13 @@ internal static class EnvManAwakePatch
         SkyChanger.OnWorldLoaded();
     }
 }
+
+// The tree is looked for once the player exists, when the whole scene is there
+[HarmonyPatch(typeof(Player), nameof(Player.Awake))]
+internal static class PlayerAwakePatch
+{
+    private static void Postfix()
+    {
+        SkyChanger.OnPlayerSpawned();
+    }
+}
