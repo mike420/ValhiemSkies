@@ -1,0 +1,10 @@
+{
+  "name": "ValheimSkies",
+  "description": "Replace Valheim's night sky with HD space skies: galaxies, nebulae and deep fields. Pick one, or get a random sky each time you enter a world.",
+  "version_number": "1.0.0",
+  "website_url": "https://discord.gg/mnr36G6J4x",
+  "dependencies": [
+    "denikson-BepInExPack_Valheim-5.4.2350",
+    "ValheimModding-Jotunn-2.30.2"
+  ]
+}

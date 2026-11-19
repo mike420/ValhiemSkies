@@ -1,0 +1,14 @@
+# Build output
+bin/
+obj/
+.vs/
+*.user
+*.suo
+
+# Machine-specific paths
+Environment.props
+
+# Release packages
+ValheimSkies/ThunderStore/
+*.zip
+*.log
