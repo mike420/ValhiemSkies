@@ -37,6 +37,11 @@ internal static class SkyCatalog
         new SkyInfo("Ember Nebula", "sky_ember_nebula"),
         new SkyInfo("Dust Lane", "sky_dust_lane"),
         new SkyInfo("Cosmic Clouds", "sky_cosmic_clouds"),
+        new SkyInfo("Cosmos 1", "sky_cosmos_1"),
+        new SkyInfo("Cosmos 4", "sky_cosmos_4"),
+        new SkyInfo("Nebula 30", "sky_nebula_30"),
+        new SkyInfo("Nebula 39", "sky_nebula_39"),
+        new SkyInfo("Nebula 64", "sky_nebula_64"),
     };
 
     // What the Sky setting can be: the game's own sky first, then every sky from the bundle

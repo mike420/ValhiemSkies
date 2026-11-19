@@ -9,10 +9,17 @@ Even £1 or $1 would be greatly appreciated and would help more than you might t
 Thank you for your support, and happy gaming! ...... (A Paypal account is NOT required!)
 [url=https://www.paypal.com/donate/?hosted_button_id=BN8HEWHRMAREU][img]https://imgup.uk/i/n7Sg7WK9.png[/img][/url]
 
+[size=5][b]Recommended Plugins[/b][/size]
+
+[list]
+[*]<a href="https://valheim.hexium.gg/mods/MagicMike/AuroraBorealis">Aurora Borealis</a>
+[*]<a href="https://valheim.hexium.gg/mods/Ivvty/WeatherOverhaul">Weather Overhaul</a>
+[/list]
+
 [size=5][b]Features[/b][/size]
 
 [list]
-[*][b]11 HD skies[/b], each a full 6-face cubemap.
+[*][b]16 HD skies[/b], each a full 6-face cubemap.
 [*]Change the sky [b]while playing[/b], from the in-game settings panel (F7). No restart needed.
 [*][b]Random Sky[/b]: a different sky each time you enter a world.
 [*][b]Vanilla[/b] option to go back to the game's own sky.
@@ -36,6 +43,11 @@ Thank you for your support, and happy gaming! ...... (A Paypal account is NOT re
 [*]Ember Nebula
 [*]Dust Lane
 [*]Cosmic Clouds
+[*]Cosmos 1
+[*]Cosmos 4
+[*]Nebula 30
+[*]Nebula 39
+[*]Nebula 64
 [/list]
 The skies replace the star field of the game's sky, so they show best at night, when the stars come out.
 
@@ -53,3 +65,32 @@ Press [b]F7[/b] in game to open the settings panel, or edit [b]BepInEx/config/Ma
 [size=5][b]Translations[/b][/size]
 
 The translation files are in [b]BepInEx/config/ValheimSkies/Translations/<Language>/ValheimSkies.json[/b]. Edit them, or add a language, and restart the game.
+
+[size=5][b]Installation[/b][/size]
+
+### Automatic Install
+Plugin is created to be installed with r2modman or Gale.
+For Nexus downloads you will need to install manually.
+### Manual Install
+[list]
+[*]Un-zip and drag the [b]ValheimSkies[/b] folder in your [b]BepInEx/plugins/[/b] folder.
+[/list]
+
+[size=5][b]Plugins Created by Magic Mike[/b][/size]
+
+[list]
+[*]<a href="https://valheim.hexium.gg/mods/MagicMike/CoreWoodExtras">Corewood Extras</a>
+[*]<a href="https://valheim.hexium.gg/mods/MagicMike/CorewoodFortified">Corewood Fortified</a>
+[*]<a href="https://valheim.hexium.gg/mods/MagicMike/CorewoodAdditions">Corewood Additions</a>
+[*]<a href="https://valheim.hexium.gg/mods/MagicMike/MyDirtyHoe">My Dirty Hoe</a>
+[*]<a href="https://valheim.hexium.gg/mods/MagicMike/ChestPreview">Chest Preview</a>
+[*]<a href="https://valheim.hexium.gg/mods/MagicMike/YabbaDabbaDoo">YabbaDabbaDoo</a>
+[*]<a href="https://valheim.hexium.gg/mods/MagicMike/BetterBuildMenu">Better Build Menu</a>
+[*]<a href="https://valheim.hexium.gg/mods/MagicMike/BetterEquipSlots">Better Equip Slots</a>
+[*]<a href="https://valheim.hexium.gg/mods/MagicMike/ExtraInventorySlots">Extra Inventory Slots</a>
+[*]<a href="https://valheim.hexium.gg/mods/MagicMike/VillagePlebs">Village Plebs</a>
+[*]<a href="https://valheim.hexium.gg/mods/MagicMike/EinherjarBodies">Einherjar Bodies</a>
+[/list]
+
+[size=5][b]Comments/Suggestions/Help: <a href="https://www.nexusmods.com/valheim/mods/2806">Nexus</a>, <a href="https://discord.gg/mnr36G6J4x">Discord</a>.[/b][/size]
+
