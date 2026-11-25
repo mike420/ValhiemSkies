@@ -47,6 +47,7 @@
     </EmbeddedResource>
     <None Include="Assets\Translations\**\ValheimSkies.json" Exclude="Assets\Translations\English\ValheimSkies.json" />
     <None Include="Resources\valheim_skies" Condition="Exists('Resources\valheim_skies')" />
+    <None Include="Resources\valheim_clouds" Condition="Exists('Resources\valheim_clouds')" />
     <None Include="Nexus\README.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -56,6 +57,9 @@
     <Compile Include="SkyCatalog.cs" />
     <Compile Include="SkyChanger.cs" />
     <Compile Include="SkyPatches.cs" />
+    <Compile Include="CloudWeather.cs" />
+    <Compile Include="VolumetricClouds.cs" />
+    <Compile Include="WeatherPicker.cs" />
     <Compile Include="Translations.cs" />
     <Compile Include="..\Shared\ModSettings\*.cs">
       <Link>ModSettings\%(Filename)%(Extension)</Link>
@@ -98,6 +102,7 @@
     </ItemGroup>
     <Copy SourceFiles="$(TargetDir)$(AssemblyName).dll" DestinationFolder="$(MOD_DEPLOYPATH)\ValheimSkies" OverwriteReadOnlyFiles="true" />
     <Copy SourceFiles="$(ProjectDir)Resources\valheim_skies" DestinationFolder="$(MOD_DEPLOYPATH)\ValheimSkies" OverwriteReadOnlyFiles="true" SkipUnchangedFiles="true" Condition="Exists('$(ProjectDir)Resources\valheim_skies')" />
+    <Copy SourceFiles="$(ProjectDir)Resources\valheim_clouds" DestinationFolder="$(MOD_DEPLOYPATH)\ValheimSkies" OverwriteReadOnlyFiles="true" SkipUnchangedFiles="true" Condition="Exists('$(ProjectDir)Resources\valheim_clouds')" />
     <Copy SourceFiles="@(LanguageFiles)" DestinationFiles="@(LanguageFiles->'$(MOD_CONFIGPATH)\ValheimSkies\Translations\%(RecursiveDir)%(Filename)%(Extension)')" OverwriteReadOnlyFiles="true" />
   </Target>
 
@@ -109,10 +114,12 @@
   <Target Name="MakeThunderstorePackage" AfterTargets="UpdateManifestVersion" Condition=" '$(Configuration)' == 'Release' ">
     <Error Text="Package\icon.png is missing (Thunderstore needs 256x256)." Condition="!Exists('$(ProjectDir)Package\icon.png')" />
     <Error Text="Resources\valheim_skies is missing: build it in the Unity project first." Condition="!Exists('$(ProjectDir)Resources\valheim_skies')" />
+    <Error Text="Resources\valheim_clouds is missing: build it in the Unity project first (Valheim Skies > Build Clouds Bundle)." Condition="!Exists('$(ProjectDir)Resources\valheim_clouds')" />
     <ItemGroup>
       <LanguageFiles Include="$(AssetsDir)\Translations\**\ValheimSkies.json" />
       <PluginFiles Include="$(TargetDir)$(AssemblyName).dll" />
       <PluginFiles Include="$(ProjectDir)Resources\valheim_skies" />
+      <PluginFiles Include="$(ProjectDir)Resources\valheim_clouds" />
       <PackageFiles Include="$(ProjectDir)Package\CHANGELOG.md;$(ProjectDir)Package\README.md;$(ProjectDir)Package\manifest.json;$(ProjectDir)Package\icon.png" />
     </ItemGroup>
     <MakeDir Directories="$(ThunderPackage)" />

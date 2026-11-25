@@ -7,6 +7,32 @@
 </thead>
 <tbody>
   <tr>
+    <td>1.0.4</td>
+    <td>
+    <ul>
+      <li>New volumetric clouds (Clouds settings, on by default at Medium quality): fair-weather cumulus under soft veils, grey textured decks in rain and storms, cloud shadows, cirrus, dark clouds at night and pink clouds at sunset.</li>
+      <li>New Atmosphere Sky: a physically based daytime sky that the clouds are lit by; your chosen sky still shows at night.</li>
+      <li>New Weather and Time of Day settings to hold the game on one weather or time of day.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>1.0.3</td>
+    <td>
+    <ul>
+      <li>Removed Nexus links.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>1.0.2</td>
+    <td>
+    <ul>
+      <li>Updated readme and links.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
     <td>1.0.1</td>
     <td>
         <ul>
