@@ -11,7 +11,7 @@ namespace ValheimSkies;
 public class ValheimSkiesMod : BaseUnityPlugin
 {
     public const string PluginName = "ValheimSkies";
-    public const string PluginVersion = "1.0.3";
+    public const string PluginVersion = "1.0.4";
     public const string PluginAuthor = "MagicMike";
     internal const string PluginGUID = "MagicMike.ValheimSkies";
     internal const string PluginCopy = "Copyright © MagicMike 2026";
