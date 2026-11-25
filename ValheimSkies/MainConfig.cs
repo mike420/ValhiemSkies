@@ -31,7 +31,6 @@ internal static class MainConfig
         Always
     }
     public static ConfigEntry<string> weather;
-    public static ConfigEntry<string> timeOfDay;
 
     public static void Init(ConfigFile config)
     {
@@ -54,14 +53,13 @@ internal static class MainConfig
 
         weather = config.BindConfigInOrder("Weather", "Weather", defaultValue: WeatherPicker.Natural, "Holds the game on one weather, wherever you are (as the game's env console command does). Natural leaves the weather to the game. The game blends into the new weather over a few seconds. The weathers of the Mistlands, the Ashlands and the Deep North only exist once the world has them; if one is missing, the log lists the world's weathers.", synced: false, sectionOrder: true, settingOrder: true, acceptableValues: new AcceptableValueList<string>(WeatherPicker.Choices));
 
-        timeOfDay = config.BindConfigInOrder("Weather", "Time of Day", defaultValue: WeatherPicker.Natural, "Holds the sun at one time of day (as the game's tod console command does). Natural lets the day pass as usual.", synced: false, sectionOrder: true, settingOrder: true, acceptableValues: new AcceptableValueList<string>(WeatherPicker.Times));
-
         CarryOverOldSections(config);
 
         volumetricClouds.SettingChanged += (_, _) => VolumetricClouds.OnSettingChanged();
         hideGameClouds.SettingChanged += (_, _) => VolumetricClouds.OnSettingChanged();
         cloudShadows.SettingChanged += (_, _) => VolumetricClouds.OnSettingChanged();
         cloudQuality.SettingChanged += (_, _) => VolumetricClouds.OnSettingChanged();
+        atmosphereSky.SettingChanged += (_, _) => VolumetricClouds.OnSettingChanged();
         sky.SettingChanged += (_, _) => SkyChanger.OnSettingChanged(newPick: false);
         hideYggdrasil.SettingChanged += (_, _) => SkyChanger.ApplyYggdrasil();
         randomSky.SettingChanged += (_, _) => SkyChanger.OnSettingChanged(newPick: true);

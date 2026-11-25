@@ -1,10 +1,9 @@
 # Launches Valheim, loads the first world with the first character, takes sky screenshots and quits.
-# The mod's Weather and Time of Day settings are set first, so each run shows a chosen sky.
-#   tools\skyshots.ps1 -Weather Clear -Time Noon -Out <folder> [-Name noon_clear]
+# The mod's Weather setting is set first, so each run shows a chosen weather.
+#   tools\skyshots.ps1 -Weather Clear -Out <folder> [-Name clear]
 # Writes <Name>_0..4.png (four directions about 30 degrees up, then straight up) and <Name>.jpg (all five tiled).
 param(
     [string]$Weather = "Natural",
-    [string]$Time = "Natural",
     [Parameter(Mandatory = $true)][string]$Out,
     [string]$Name = "",
     [int]$Settle = 25
@@ -13,12 +12,12 @@ $ErrorActionPreference = "Stop"
 $game = "D:\SteamLibrary\steamapps\common\Valheim"
 $cfg = Join-Path $game "BepInEx\config\MagicMike.ValheimSkies.cfg"
 $input = Join-Path $PSScriptRoot "gameinput.ps1"
-if ($Name -eq "") { $Name = ($Time + "_" + $Weather).ToLowerInvariant() -replace '[^a-z0-9_]', '_' }
+if ($Name -eq "") { $Name = ($Weather).ToLowerInvariant() -replace '[^a-z0-9_]', '_' }
 New-Item -ItemType Directory -Force $Out | Out-Null
 
 if (Get-Process valheim -ErrorAction SilentlyContinue) { throw "Valheim is already running" }
 
-# Set Weather and Time of Day in the [.. - Weather] section (added if missing)
+# Set Weather in the [.. - Weather] section (added if missing)
 function Set-Setting([string]$key, [string]$value) {
     $lines = [System.Collections.Generic.List[string]](Get-Content $cfg)
     $index = $lines.FindIndex({ param($l) $l -match "^$([regex]::Escape($key)) = " })
@@ -31,7 +30,6 @@ function Set-Setting([string]$key, [string]$value) {
     Set-Content $cfg $lines
 }
 Set-Setting "Weather" $Weather
-Set-Setting "Time of Day" $Time
 
 Start-Process "steam://rungameid/892970"
 $t = 0

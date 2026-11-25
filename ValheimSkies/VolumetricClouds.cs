@@ -185,17 +185,25 @@ internal static class VolumetricClouds
     private static Color horizonColor;
     private static bool haveHorizon;
     private static bool readingHorizon;
-    private static float nextHorizonRead;
+    // The latest horizon read back from the GPU; horizonColor eases towards it, so the fog never steps
+    private static Color horizonTarget;
+    private const float HorizonEaseTime = 0.3f;
     // The game's own fog colour this frame, before the horizon is mixed into it
     private static Color gameFogColor;
+    // The fog colour this mod last gave RenderSettings. The game sets its fog in FixedUpdate (50 a second), so on
+    // frames without a fixed step RenderSettings still holds ours; read as the game's, it would be mixed again and
+    // the far land would flicker between the two
+    private static Color writtenFogColor;
+    private static bool wroteFog;
     // How far the game's fog leans towards the sky's horizon by day (WeatherOverhaul's fog sky: half)
     private const float FogSkyShare = 0.5f;
     private const float TwilightExposure = 0.75f;
 
     private static Camera skyCamera;
     private static RenderTexture skyCube;
-    private static float nextSkyCapture;
-    private const float SkyCaptureInterval = 0.25f;
+    // The sky cube is captured one face a frame (the whole sky every six frames), so the clouds' ambient light follows
+    // the sky smoothly rather than in steps
+    private static int skyFace;
     private static CloudWeather.Regime loggedRegime = (CloudWeather.Regime)(-1);
     private static MainConfig.HighClouds loggedHigh = (MainConfig.HighClouds)(-1);
     // How far the wind has carried the cirrus (m), and the turn of their sky map (radians a game day)
@@ -302,17 +310,22 @@ internal static class VolumetricClouds
         weather?.Snap();
     }
 
+    // A cloud setting changed in game: the clouds start over as they do when the game starts. Everything they render
+    // with is let go and made again on the next frame, so a change leaves nothing behind from the old settings
     public static void OnSettingChanged()
     {
-        historyValid = false;
-        if (!MainConfig.hideGameClouds.Value || !MainConfig.volumetricClouds.Value)
+        Detach();
+        RestoreGameClouds();
+        ReleaseCookie();
+        ReleaseTargets();
+        ReleaseSkyTextures();
+        if (cloudMap != null)
         {
-            RestoreGameClouds();
+            cloudMap.Release();
+            Object.Destroy(cloudMap);
+            cloudMap = null;
         }
-        if (!MainConfig.volumetricClouds.Value || MainConfig.cloudShadows.Value <= 0f)
-        {
-            RestoreSunCookie();
-        }
+        active = false;
     }
 
     public static void Shutdown()
@@ -424,6 +437,7 @@ internal static class VolumetricClouds
         addedDepth = false;
         commands.Clear();
         historyValid = false;
+        wroteFog = false;
     }
 
     // Fills the command buffer for this frame, just before the camera renders
@@ -434,7 +448,11 @@ internal static class VolumetricClouds
             return;
         }
 
-        gameFogColor = RenderSettings.fogColor;
+        Color fogNow = RenderSettings.fogColor;
+        if (!wroteFog || fogNow != writtenFogColor)
+        {
+            gameFogColor = fogNow;
+        }
         GetQuality(MainConfig.cloudQuality.Value, out int divider, out int primarySteps, out int lightSteps);
         int fullWidth = Mathf.Max(1, cam.pixelWidth);
         int fullHeight = Mathf.Max(1, cam.pixelHeight);
@@ -578,7 +596,7 @@ internal static class VolumetricClouds
     {
         if (cloudMap == null)
         {
-            cloudMap = Create(MapSize, MapSize, RenderTextureFormat.ARGB32, FilterMode.Bilinear, "map");
+            cloudMap = Create(MapSize, MapSize, RenderTextureFormat.ARGBHalf, FilterMode.Bilinear, "map");
             material.SetTexture(MapId, cloudMap);
         }
 
@@ -746,7 +764,9 @@ internal static class VolumetricClouds
         Shader.SetGlobalColor("_AtmoSunColor", Shader.GetGlobalColor("_SunColor"));
 
         atmosphereCommands.Clear();
-        if (Mathf.Abs(aerosol - builtAerosol.x) > 0.0002f)
+        // Rebuilt whenever the haze changes (every frame while a change of weather eases in; it is a small table): a
+        // threshold here held the table back while the rest of the sky moved on, so the sky and clouds jumped at each rebuild
+        if (aerosol != builtAerosol.x)
         {
             builtAerosol.x = aerosol;
             atmosphereCommands.SetRenderTarget(multiScattering);
@@ -764,20 +784,27 @@ internal static class VolumetricClouds
         Graphics.ExecuteCommandBuffer(atmosphereCommands);
         RenderTexture.active = active;
 
-        if (!readingHorizon && Time.unscaledTime >= nextHorizonRead && SystemInfo.supportsAsyncGPUReadback)
+        if (!readingHorizon && SystemInfo.supportsAsyncGPUReadback)
         {
             readingHorizon = true;
-            nextHorizonRead = Time.unscaledTime + 0.25f;
             AsyncGPUReadback.Request(horizon, 0, TextureFormat.RGBAFloat, request =>
             {
                 readingHorizon = false;
                 if (!request.hasError)
                 {
                     Color linear = request.GetData<Color>()[0];
-                    horizonColor = QualitySettings.activeColorSpace == ColorSpace.Linear ? linear.gamma : linear;
+                    horizonTarget = QualitySettings.activeColorSpace == ColorSpace.Linear ? linear.gamma : linear;
+                    if (!haveHorizon)
+                    {
+                        horizonColor = horizonTarget;
+                    }
                     haveHorizon = true;
                 }
             });
+        }
+        if (haveHorizon)
+        {
+            horizonColor = Color.Lerp(horizonColor, horizonTarget, 1f - Mathf.Exp(-Time.unscaledDeltaTime / HorizonEaseTime));
         }
 
         // The game's distance fog leans towards the sky's horizon by day, so far land fades into the sky (not in wet
@@ -798,6 +825,8 @@ internal static class VolumetricClouds
         }
         fog.a = gameFogColor.a;
         RenderSettings.fogColor = fog;
+        writtenFogColor = fog;
+        wroteFog = true;
     }
 
     // The game dims its sun in rain and storms (light intensity 0.5 against 1.7 when clear), which leaves the decks dark
@@ -836,13 +865,11 @@ internal static class VolumetricClouds
 
     private static void CaptureSky(Vector3 position)
     {
-        if (Time.unscaledTime < nextSkyCapture && skyCube != null)
-        {
-            return;
-        }
-        nextSkyCapture = Time.unscaledTime + SkyCaptureInterval;
+        int faceMask = 1 << skyFace;
+        skyFace = (skyFace + 1) % 6;
         if (skyCube == null)
         {
+            faceMask = 63;
             skyCube = new RenderTexture(64, 64, 16, RenderTextureFormat.ARGBHalf)
             {
                 dimension = TextureDimension.Cube,
@@ -869,10 +896,21 @@ internal static class VolumetricClouds
             skyCamera.farClipPlane = 10f;
         }
         skyCamera.transform.position = position;
-        skyCamera.RenderToCubemap(skyCube);
+        skyCamera.RenderToCubemap(skyCube, faceMask);
     }
 
     private static void ReleaseSky()
+    {
+        ReleaseSkyTextures();
+        if (atmosphereMaterial != null)
+        {
+            Object.Destroy(atmosphereMaterial);
+            atmosphereMaterial = null;
+        }
+    }
+
+    // The atmosphere's tables, the horizon and the sky capture (made again when next needed)
+    private static void ReleaseSkyTextures()
     {
         foreach (RenderTexture table in new[] { multiScattering, skyView })
         {
@@ -891,11 +929,6 @@ internal static class VolumetricClouds
             horizon = null;
         }
         haveHorizon = false;
-        if (atmosphereMaterial != null)
-        {
-            Object.Destroy(atmosphereMaterial);
-            atmosphereMaterial = null;
-        }
         if (skyCamera != null)
         {
             Object.Destroy(skyCamera.gameObject);

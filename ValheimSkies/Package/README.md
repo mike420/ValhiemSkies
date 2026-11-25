@@ -35,7 +35,7 @@ Thank you for your support, and happy gaming! ⚔️  ...... (A Paypal account i
   * **Vanilla** option to go back to the game's own sky.
   * **Hide Yggdrasil** option to hide the big tree that grows up into the sky.
   * **Volumetric clouds** (optional, off by default): 3D clouds that follow the weather, with a physically based daytime sky, cloud shadows and high cirrus.
-  * **Weather** and **Time of Day** settings to hold the game on one weather or time of day.
+  * **Weather** setting to hold the game on one weather.
   * Only the sky you are using is kept in memory.
   * Client side: you do not need the server to have it, and it does not change gameplay.
   * Translated into 9 languages.
@@ -83,7 +83,6 @@ Press **F7** in game to open the settings panel, or edit `BepInEx/config/MagicMi
 | Atmosphere Sky | On | With Volumetric Clouds, the daytime sky is a physically based atmosphere the clouds are lit by. Your chosen sky still shows at night. |
 | Hide Game Clouds | On | Hides the game's own flat cloud layers while the volumetric clouds show. |
 | Weather | Natural | Holds the game on one weather. Natural leaves it to the game. |
-| Time of Day | Natural | Holds the sun at one time of day (Dawn, Morning, Noon, Afternoon, Sunset, Dusk, Night). Natural lets the day pass. |
 
 If you use Weather Overhaul's own clouds, leave Volumetric Clouds off: two cloud systems would draw over each other.
 

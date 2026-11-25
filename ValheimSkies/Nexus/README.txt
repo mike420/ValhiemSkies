@@ -26,7 +26,7 @@ Thank you for your support, and happy gaming! ...... (A Paypal account is NOT re
 [*][b]Vanilla[/b] option to go back to the game's own sky.
 [*][b]Hide Yggdrasil[/b] option to hide the big tree that grows up into the sky.
 [*][b]Volumetric clouds[/b] (optional, off by default): 3D clouds that follow the weather, with a physically based daytime sky, cloud shadows and high cirrus.
-[*][b]Weather[/b] and [b]Time of Day[/b] settings to hold the game on one weather or time of day.
+[*][b]Weather[/b] setting to hold the game on one weather.
 [*]Only the sky you are using is kept in memory.
 [*]Client side: you do not need the server to have it, and it does not change gameplay.
 [*]Translated into 9 languages.
@@ -70,7 +70,6 @@ Press [b]F7[/b] in game to open the settings panel, or edit [b]BepInEx/config/Ma
 [*][b]Atmosphere Sky[/b] (default On): With Volumetric Clouds, the daytime sky is a physically based atmosphere the clouds are lit by. Your chosen sky still shows at night.
 [*][b]Hide Game Clouds[/b] (default On): Hides the game's own flat cloud layers while the volumetric clouds show.
 [*][b]Weather[/b] (default Natural): Holds the game on one weather. Natural leaves it to the game.
-[*][b]Time of Day[/b] (default Natural): Holds the sun at one time of day (Dawn, Morning, Noon, Afternoon, Sunset, Dusk, Night). Natural lets the day pass.
 [/list]
 If you use Weather Overhaul's own clouds, leave Volumetric Clouds off: two cloud systems would draw over each other.
 

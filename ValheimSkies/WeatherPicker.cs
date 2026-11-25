@@ -22,12 +22,6 @@ internal static class WeatherPicker
         "Eikthyr", "GDKing", "Bonemass", "Moder", "GoblinKing", "Queen", "Fader",
     };
 
-    // The Time of Day setting: holds the sun where the game's own debug time does (EnvMan.m_debugTimeOfDay). The day
-    // fraction: the sun rises at about 0.25 and sets at about 0.75
-    public static readonly string[] Times = { Natural, "Dawn", "Morning", "Noon", "Afternoon", "Sunset", "Dusk", "Night" };
-    private static readonly float[] TimeFractions = { -1f, 0.26f, 0.35f, 0.5f, 0.63f, 0.72f, 0.76f, 0.95f };
-    private static bool timeHeld;
-
     // What this setting last put into the game, so turning it back to Natural clears only our own choice
     private static string applied = "";
     private static string reported = "";
@@ -40,8 +34,6 @@ internal static class WeatherPicker
             applied = "";
             return;
         }
-
-        HoldTime(env);
 
         string pick = MainConfig.weather.Value;
         if (string.IsNullOrEmpty(pick) || pick == Natural)
@@ -70,22 +62,5 @@ internal static class WeatherPicker
             env.m_debugEnv = pick;
         }
         applied = pick;
-    }
-
-    private static void HoldTime(EnvMan env)
-    {
-        int index = System.Array.IndexOf(Times, MainConfig.timeOfDay.Value);
-        if (index <= 0)
-        {
-            if (timeHeld)
-            {
-                env.m_debugTimeOfDay = false;
-                timeHeld = false;
-            }
-            return;
-        }
-        env.m_debugTimeOfDay = true;
-        env.m_debugTime = TimeFractions[index];
-        timeHeld = true;
     }
 }

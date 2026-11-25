@@ -233,7 +233,12 @@ internal sealed class CloudWeather
         {
             return Regime.PolarClear;
         }
-        // As WeatherOverhaul: half the dry days are fair, half broken (its BrokenShare 0.5)
+        // The game's clear weathers are always fair: a broken sky (70 to 95% cumulus) reads as cloudy, not clear
+        if (Contains(name, "clear"))
+        {
+            return Regime.Fair;
+        }
+        // Other dry weathers, as WeatherOverhaul: half the days are fair, half broken (its BrokenShare 0.5)
         return dayType >= 0.5f ? Regime.Broken : Regime.Fair;
     }
 
