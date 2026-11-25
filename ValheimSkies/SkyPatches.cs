@@ -9,7 +9,6 @@ internal static class EnvManAwakePatch
     private static void Postfix()
     {
         SkyChanger.OnWorldLoaded();
-        VolumetricClouds.OnWorldLoaded();
     }
 }
 
