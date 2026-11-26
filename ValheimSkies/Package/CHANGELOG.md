@@ -7,6 +7,15 @@
 </thead>
 <tbody>
   <tr>
+    <td>1.0.7</td>
+    <td>
+    <ul>
+      <li>New <b>Moon</b> (Off by default): a detailed moon picture in place of the game's plain white moon, in the same place in the sky. It fades in at dusk and out at dawn, and the game's clouds pass in front of it in any weather.</li>
+      <li>Moon Size, Moon Brightness and Moon Glow settings.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
     <td>1.0.6</td>
     <td>
     <ul>

@@ -18,6 +18,8 @@ internal static class MainConfig
     public static ConfigEntry<bool> physicalSky;
     public static ConfigEntry<float> physicalSkyStrength;
     public static ColourSetting daySky, sunsetSky;
+    public static ConfigEntry<bool> moon;
+    public static ConfigEntry<float> moonSize, moonBrightness, moonGlow;
 
     public static void Init(ConfigFile config)
     {
@@ -32,6 +34,10 @@ internal static class MainConfig
         physicalSkyStrength = config.BindConfigInOrder("Physical Sky", "Strength", defaultValue: 0.5f, "How much the atmosphere covers the game's own sky by day: 0 not at all, 1 fully.", synced: false, sectionOrder: true, settingOrder: true, acceptableValues: new AcceptableValueRange<float>(0f, 1f));
         daySky = new ColourSetting(config, "Physical Sky", "Day Sky", "the sky overhead by day (paler toward the horizon)", 0.6f, 0.6f, 0.9f);
         sunsetSky = new ColourSetting(config, "Physical Sky", "Sunset", "the glow along the horizon at sunrise and sunset (with the game's time of day, tod, about 0.2 to 0.3 and 0.7 to 0.8)", 0.05f, 0.75f, 1f);
+        moon = config.BindConfigInOrder("Moon", "Moon", defaultValue: false, "If On, a moon rises opposite the sun at night. It fades in at dusk and out at dawn, and the game's clouds pass in front of it, in any weather as the game's own moon does. Changes show straight away.", synced: false, sectionOrder: true, settingOrder: true);
+        moonSize = config.BindConfigInOrder("Moon", "Moon Size", defaultValue: 6f, "How big the moon looks, in degrees across the sky (the real moon is about 0.5).", synced: false, sectionOrder: true, settingOrder: true, acceptableValues: new AcceptableValueRange<float>(1f, 30f));
+        moonBrightness = config.BindConfigInOrder("Moon", "Moon Brightness", defaultValue: 1f, "How bright the moon is: 0 invisible, 1 its picture's own brightness, 2 twice as bright.", synced: false, sectionOrder: true, settingOrder: true, acceptableValues: new AcceptableValueRange<float>(0f, 2f));
+        moonGlow = config.BindConfigInOrder("Moon", "Moon Glow", defaultValue: 0.3f, "How much soft glow surrounds the moon: 0 none, 1 the most.", synced: false, sectionOrder: true, settingOrder: true, acceptableValues: new AcceptableValueRange<float>(0f, 1f));
 
         CarryOverOldSections(config);
 

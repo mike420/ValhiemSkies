@@ -34,6 +34,7 @@ Thank you for your support, and happy gaming! ⚔️  ...... (A Paypal account i
   * **Random Sky**: a different sky each time you enter a world.
   * **Vanilla** option to go back to the game's own sky.
   * **Hide Yggdrasil** option to hide the big tree that grows up into the sky.
+  * **Moon**: a detailed moon in place of the game's plain white one, with size, brightness and glow settings.
   * **Physical Sky**: a simple atmosphere for the daytime sky, deep blue overhead and paler toward the horizon, with a glow around the sun and sunset colours along the horizon. Its colours can be changed with sliders. It fades out at night, so your chosen sky shows, and in bad weather.
   * Only the sky you are using is kept in memory.
   * Client side: you do not need the server to have it, and it does not change gameplay.
@@ -76,6 +77,10 @@ Press **F7** in game to open the settings panel, or edit `BepInEx/config/MagicMi
 | Strength | 0.5 | How much Physical Sky covers the game's own sky by day (0 not at all, 1 fully). |
 | Day Sky Hue / Saturation / Brightness | 0.6 / 0.6 / 0.9 | The colour of the sky overhead by day (blue). |
 | Sunset Hue / Saturation / Brightness | 0.05 / 0.75 / 1 | The colour of the glow along the horizon at sunrise and sunset (orange). |
+| Moon | Off | Shows a detailed moon in place of the game's plain white one. |
+| Moon Size | 6 | How big the moon looks, in degrees across the sky. |
+| Moon Brightness | 1 | How bright the moon is (0 to 2). |
+| Moon Glow | 0.3 | How much soft glow surrounds the moon (0 to 1). |
 
 <br>
 

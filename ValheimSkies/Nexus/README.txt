@@ -25,6 +25,7 @@ Thank you for your support, and happy gaming! ...... (A Paypal account is NOT re
 [*][b]Random Sky[/b]: a different sky each time you enter a world.
 [*][b]Vanilla[/b] option to go back to the game's own sky.
 [*][b]Hide Yggdrasil[/b] option to hide the big tree that grows up into the sky.
+[*][b]Moon[/b]: a detailed moon in place of the game's plain white one, with size, brightness and glow settings.
 [*][b]Physical Sky[/b]: a simple atmosphere for the daytime sky, deep blue overhead and paler toward the horizon, with a glow around the sun and sunset colours along the horizon. Its colours can be changed with sliders. It fades out at night, so your chosen sky shows, and in bad weather.
 [*]Only the sky you are using is kept in memory.
 [*]Client side: you do not need the server to have it, and it does not change gameplay.
@@ -63,6 +64,10 @@ Press [b]F7[/b] in game to open the settings panel, or edit [b]BepInEx/config/Ma
 [*][b]Strength[/b] (default 0.5): How much Physical Sky covers the game's own sky by day (0 not at all, 1 fully).
 [*][b]Day Sky Hue / Saturation / Brightness[/b] (default 0.6 / 0.6 / 0.9): The colour of the sky overhead by day (blue).
 [*][b]Sunset Hue / Saturation / Brightness[/b] (default 0.05 / 0.75 / 1): The colour of the glow along the horizon at sunrise and sunset (orange).
+[*][b]Moon[/b] (default Off): Shows a detailed moon in place of the game's plain white one.
+[*][b]Moon Size[/b] (default 6): How big the moon looks, in degrees across the sky.
+[*][b]Moon Brightness[/b] (default 1): How bright the moon is (0 to 2).
+[*][b]Moon Glow[/b] (default 0.3): How much soft glow surrounds the moon (0 to 1).
 [/list]
 
 [size=5][b]Translations[/b][/size]
