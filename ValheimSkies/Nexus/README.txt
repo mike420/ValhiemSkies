@@ -26,6 +26,7 @@ Thank you for your support, and happy gaming! ...... (A Paypal account is NOT re
 [*][b]Vanilla[/b] option to go back to the game's own sky.
 [*][b]Hide Yggdrasil[/b] option to hide the big tree that grows up into the sky.
 [*][b]Moon[/b]: a detailed moon in place of the game's plain white one, with size, brightness and glow settings.
+[*][b]Rainbows[/b]: a rainbow can come out opposite the sun after the rain, with a brightness setting.
 [*][b]Physical Sky[/b]: a simple atmosphere for the daytime sky, deep blue overhead and paler toward the horizon, with a glow around the sun and sunset colours along the horizon. Its colours can be changed with sliders. It fades out at night, so your chosen sky shows, and in bad weather.
 [*]Only the sky you are using is kept in memory.
 [*]Client side: you do not need the server to have it, and it does not change gameplay.
@@ -68,6 +69,8 @@ Press [b]F7[/b] in game to open the settings panel, or edit [b]BepInEx/config/Ma
 [*][b]Moon Size[/b] (default 6): How big the moon looks, in degrees across the sky.
 [*][b]Moon Brightness[/b] (default 1): How bright the moon is (0 to 2).
 [*][b]Moon Glow[/b] (default 0.3): How much soft glow surrounds the moon (0 to 1).
+[*][b]Rainbows[/b] (default Off): A rainbow can come out after the rain, opposite the sun, when the sun is low enough (by day, up to 40 degrees up). It stays about three minutes.
+[*][b]Rainbow Brightness[/b] (default 1): How strong the rainbow's colours are (0 to 2).
 [/list]
 
 [size=5][b]Translations[/b][/size]

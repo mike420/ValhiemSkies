@@ -38,6 +38,12 @@ public class ValheimSkiesMod : BaseUnityPlugin
     {
         SkyChanger.Tick();
         PhysicalSky.Tick();
+        Rainbow.Tick();
+    }
+
+    public void LateUpdate()
+    {
+        Rainbow.Follow();
     }
 
     public void OnDestroy()
@@ -45,5 +51,6 @@ public class ValheimSkiesMod : BaseUnityPlugin
         harmony?.UnpatchSelf();
         SkyChanger.Shutdown();
         PhysicalSky.Shutdown();
+        Rainbow.Shutdown();
     }
 }

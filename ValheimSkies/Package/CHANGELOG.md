@@ -12,6 +12,8 @@
     <ul>
       <li>New <b>Moon</b> (Off by default): a detailed moon picture in place of the game's plain white moon, in the same place in the sky. It fades in at dusk and out at dawn, and the game's clouds pass in front of it in any weather.</li>
       <li>Moon Size, Moon Brightness and Moon Glow settings.</li>
+      <li>New <b>Rainbows</b> (Off by default): after a spell of rain, a rainbow can come out opposite the sun when the sun is low enough (by day, up to 40 degrees up), waiting a few minutes for the sun if it is too high. It fades in, stays about three minutes and fades away, sooner if the rain comes back or night falls. Hills and trees stand in front of it.</li>
+      <li>Rainbow Brightness setting (0 to 2).</li>
     </ul>
     </td>
   </tr>

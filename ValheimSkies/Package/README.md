@@ -35,6 +35,7 @@ Thank you for your support, and happy gaming! ⚔️  ...... (A Paypal account i
   * **Vanilla** option to go back to the game's own sky.
   * **Hide Yggdrasil** option to hide the big tree that grows up into the sky.
   * **Moon**: a detailed moon in place of the game's plain white one, with size, brightness and glow settings.
+  * **Rainbows**: a rainbow can come out opposite the sun after the rain, with a brightness setting.
   * **Physical Sky**: a simple atmosphere for the daytime sky, deep blue overhead and paler toward the horizon, with a glow around the sun and sunset colours along the horizon. Its colours can be changed with sliders. It fades out at night, so your chosen sky shows, and in bad weather.
   * Only the sky you are using is kept in memory.
   * Client side: you do not need the server to have it, and it does not change gameplay.
@@ -81,6 +82,8 @@ Press **F7** in game to open the settings panel, or edit `BepInEx/config/MagicMi
 | Moon Size | 6 | How big the moon looks, in degrees across the sky. |
 | Moon Brightness | 1 | How bright the moon is (0 to 2). |
 | Moon Glow | 0.3 | How much soft glow surrounds the moon (0 to 1). |
+| Rainbows | Off | A rainbow can come out after the rain, opposite the sun, when the sun is low enough (by day, up to 40 degrees up). It stays about three minutes. |
+| Rainbow Brightness | 1 | How strong the rainbow's colours are (0 to 2). |
 
 <br>
 

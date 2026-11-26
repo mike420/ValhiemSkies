@@ -58,6 +58,7 @@
     <Compile Include="SkyChanger.cs" />
     <Compile Include="SkyPatches.cs" />
     <Compile Include="PhysicalSky.cs" />
+    <Compile Include="Rainbow.cs" />
     <Compile Include="Translations.cs" />
     <Compile Include="..\Shared\ModSettings\*.cs">
       <Link>ModSettings\%(Filename)%(Extension)</Link>

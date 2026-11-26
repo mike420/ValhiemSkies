@@ -20,6 +20,8 @@ internal static class MainConfig
     public static ColourSetting daySky, sunsetSky;
     public static ConfigEntry<bool> moon;
     public static ConfigEntry<float> moonSize, moonBrightness, moonGlow;
+    public static ConfigEntry<bool> rainbows;
+    public static ConfigEntry<float> rainbowBrightness;
 
     public static void Init(ConfigFile config)
     {
@@ -38,6 +40,10 @@ internal static class MainConfig
         moonSize = config.BindConfigInOrder("Moon", "Moon Size", defaultValue: 6f, "How big the moon looks, in degrees across the sky (the real moon is about 0.5).", synced: false, sectionOrder: true, settingOrder: true, acceptableValues: new AcceptableValueRange<float>(1f, 30f));
         moonBrightness = config.BindConfigInOrder("Moon", "Moon Brightness", defaultValue: 1f, "How bright the moon is: 0 invisible, 1 its picture's own brightness, 2 twice as bright.", synced: false, sectionOrder: true, settingOrder: true, acceptableValues: new AcceptableValueRange<float>(0f, 2f));
         moonGlow = config.BindConfigInOrder("Moon", "Moon Glow", defaultValue: 0.3f, "How much soft glow surrounds the moon: 0 none, 1 the most.", synced: false, sectionOrder: true, settingOrder: true, acceptableValues: new AcceptableValueRange<float>(0f, 1f));
+
+        rainbows = config.BindConfigInOrder("Rainbow", "Rainbows", defaultValue: false, "If On, a rainbow can come out after the rain: once it has rained for a while and stops, a rainbow shows opposite the sun if the sun is low enough (from just above the horizon to 40 degrees up, by day), waiting up to a few minutes for the sun to get there. It fades in, stays about three minutes and fades away, sooner if the rain comes back. Changes show straight away.", synced: false, sectionOrder: true, settingOrder: true);
+
+        rainbowBrightness = config.BindConfigInOrder("Rainbow", "Rainbow Brightness", defaultValue: 1f, "How strong the rainbow's colours are: 0 invisible, 1 normal, 2 twice as strong. Changes show straight away.", synced: false, sectionOrder: true, settingOrder: true, acceptableValues: new AcceptableValueRange<float>(0f, 2f));
 
         CarryOverOldSections(config);
 
