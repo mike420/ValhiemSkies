@@ -34,6 +34,7 @@ Thank you for your support, and happy gaming! ⚔️  ...... (A Paypal account i
   * **Random Sky**: a different sky each time you enter a world.
   * **Vanilla** option to go back to the game's own sky.
   * **Hide Yggdrasil** option to hide the big tree that grows up into the sky.
+  * **Physical Sky**: a simple atmosphere for the daytime sky, deep blue overhead and paler toward the horizon, with a glow around the sun and sunset colours along the horizon. Its colours can be changed with sliders. It fades out at night, so your chosen sky shows, and in bad weather.
   * Only the sky you are using is kept in memory.
   * Client side: you do not need the server to have it, and it does not change gameplay.
   * Translated into 9 languages.
@@ -71,6 +72,10 @@ Press **F7** in game to open the settings panel, or edit `BepInEx/config/MagicMi
 | Random Sky | Off | Picks a different sky each time you enter a world. The Sky setting is ignored. |
 | Show Message | On | Shows which sky is showing in the top-left corner when it changes. |
 | Hide Yggdrasil | Off | Hides the big tree (Yggdrasil) that grows up into the sky. Changes straight away in a world. |
+| Physical Sky | Off | Colours the daytime sky with a simple atmosphere. It gives way to the game's own sky at night and in rain, mist and storms. |
+| Strength | 0.5 | How much Physical Sky covers the game's own sky by day (0 not at all, 1 fully). |
+| Day Sky Hue / Saturation / Brightness | 0.6 / 0.6 / 0.9 | The colour of the sky overhead by day (blue). |
+| Sunset Hue / Saturation / Brightness | 0.05 / 0.75 / 1 | The colour of the glow along the horizon at sunrise and sunset (orange). |
 
 <br>
 

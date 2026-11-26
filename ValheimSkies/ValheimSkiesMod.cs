@@ -11,7 +11,7 @@ namespace ValheimSkies;
 public class ValheimSkiesMod : BaseUnityPlugin
 {
     public const string PluginName = "ValheimSkies";
-    public const string PluginVersion = "1.0.5";
+    public const string PluginVersion = "1.0.6";
     public const string PluginAuthor = "MagicMike";
     internal const string PluginGUID = "MagicMike.ValheimSkies";
     internal const string PluginCopy = "Copyright © MagicMike 2026";
@@ -37,11 +37,13 @@ public class ValheimSkiesMod : BaseUnityPlugin
     public void Update()
     {
         SkyChanger.Tick();
+        PhysicalSky.Tick();
     }
 
     public void OnDestroy()
     {
         harmony?.UnpatchSelf();
         SkyChanger.Shutdown();
+        PhysicalSky.Shutdown();
     }
 }

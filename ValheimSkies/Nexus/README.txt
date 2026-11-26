@@ -25,6 +25,7 @@ Thank you for your support, and happy gaming! ...... (A Paypal account is NOT re
 [*][b]Random Sky[/b]: a different sky each time you enter a world.
 [*][b]Vanilla[/b] option to go back to the game's own sky.
 [*][b]Hide Yggdrasil[/b] option to hide the big tree that grows up into the sky.
+[*][b]Physical Sky[/b]: a simple atmosphere for the daytime sky, deep blue overhead and paler toward the horizon, with a glow around the sun and sunset colours along the horizon. Its colours can be changed with sliders. It fades out at night, so your chosen sky shows, and in bad weather.
 [*]Only the sky you are using is kept in memory.
 [*]Client side: you do not need the server to have it, and it does not change gameplay.
 [*]Translated into 9 languages.
@@ -58,6 +59,10 @@ Press [b]F7[/b] in game to open the settings panel, or edit [b]BepInEx/config/Ma
 [*][b]Random Sky[/b] (default Off): Picks a different sky each time you enter a world. The Sky setting is ignored.
 [*][b]Show Message[/b] (default On): Shows which sky is showing in the top-left corner when it changes.
 [*][b]Hide Yggdrasil[/b] (default Off): Hides the big tree (Yggdrasil) that grows up into the sky. Changes straight away in a world.
+[*][b]Physical Sky[/b] (default Off): Colours the daytime sky with a simple atmosphere. It gives way to the game's own sky at night and in rain, mist and storms.
+[*][b]Strength[/b] (default 0.5): How much Physical Sky covers the game's own sky by day (0 not at all, 1 fully).
+[*][b]Day Sky Hue / Saturation / Brightness[/b] (default 0.6 / 0.6 / 0.9): The colour of the sky overhead by day (blue).
+[*][b]Sunset Hue / Saturation / Brightness[/b] (default 0.05 / 0.75 / 1): The colour of the glow along the horizon at sunrise and sunset (orange).
 [/list]
 
 [size=5][b]Translations[/b][/size]

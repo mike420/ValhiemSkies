@@ -47,6 +47,7 @@
     </EmbeddedResource>
     <None Include="Assets\Translations\**\ValheimSkies.json" Exclude="Assets\Translations\English\ValheimSkies.json" />
     <None Include="Resources\valheim_skies" Condition="Exists('Resources\valheim_skies')" />
+    <None Include="Resources\valheim_physical_sky" Condition="Exists('Resources\valheim_physical_sky')" />
     <None Include="Nexus\README.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -56,6 +57,7 @@
     <Compile Include="SkyCatalog.cs" />
     <Compile Include="SkyChanger.cs" />
     <Compile Include="SkyPatches.cs" />
+    <Compile Include="PhysicalSky.cs" />
     <Compile Include="Translations.cs" />
     <Compile Include="..\Shared\ModSettings\*.cs">
       <Link>ModSettings\%(Filename)%(Extension)</Link>
@@ -98,6 +100,7 @@
     </ItemGroup>
     <Copy SourceFiles="$(TargetDir)$(AssemblyName).dll" DestinationFolder="$(MOD_DEPLOYPATH)\ValheimSkies" OverwriteReadOnlyFiles="true" />
     <Copy SourceFiles="$(ProjectDir)Resources\valheim_skies" DestinationFolder="$(MOD_DEPLOYPATH)\ValheimSkies" OverwriteReadOnlyFiles="true" SkipUnchangedFiles="true" Condition="Exists('$(ProjectDir)Resources\valheim_skies')" />
+    <Copy SourceFiles="$(ProjectDir)Resources\valheim_physical_sky" DestinationFolder="$(MOD_DEPLOYPATH)\ValheimSkies" OverwriteReadOnlyFiles="true" SkipUnchangedFiles="true" Condition="Exists('$(ProjectDir)Resources\valheim_physical_sky')" />
     <Copy SourceFiles="@(LanguageFiles)" DestinationFiles="@(LanguageFiles->'$(MOD_CONFIGPATH)\ValheimSkies\Translations\%(RecursiveDir)%(Filename)%(Extension)')" OverwriteReadOnlyFiles="true" />
   </Target>
 
@@ -113,6 +116,7 @@
       <LanguageFiles Include="$(AssetsDir)\Translations\**\ValheimSkies.json" />
       <PluginFiles Include="$(TargetDir)$(AssemblyName).dll" />
       <PluginFiles Include="$(ProjectDir)Resources\valheim_skies" />
+      <PluginFiles Include="$(ProjectDir)Resources\valheim_physical_sky" />
       <PackageFiles Include="$(ProjectDir)Package\CHANGELOG.md;$(ProjectDir)Package\README.md;$(ProjectDir)Package\manifest.json;$(ProjectDir)Package\icon.png" />
     </ItemGroup>
     <MakeDir Directories="$(ThunderPackage)" />

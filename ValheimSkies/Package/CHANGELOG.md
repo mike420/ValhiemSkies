@@ -7,6 +7,16 @@
 </thead>
 <tbody>
   <tr>
+    <td>1.0.6</td>
+    <td>
+    <ul>
+      <li>New <b>Physical Sky</b> (Off by default): a simple atmosphere that colours the sky by day, deep overhead and paler toward the horizon, with a soft glow around the sun and a sunset glow along the horizon at sunrise and sunset.</li>
+      <li>Physical Sky's day sky and sunset colours can be changed with Hue, Saturation and Brightness sliders, and its Strength sets how much it covers the game's own sky.</li>
+      <li>It gives way to the game's own sky at night, in rain, mist and storms, and in dark places, and costs no noticeable frame rate.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
     <td>1.0.5</td>
     <td>
     <ul>
